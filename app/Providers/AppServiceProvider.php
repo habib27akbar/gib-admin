@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
+        // Load the helper file
+        require_once app_path('Helpers/TanggalHelpers.php');
     }
 
     /**
