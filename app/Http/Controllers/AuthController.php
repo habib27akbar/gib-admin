@@ -9,6 +9,11 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    public function index()
+    {
+        return view('master.user.index');
+    }
+
     public function form_login()
     {
         return view('auth.login');
@@ -20,7 +25,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/home');
         }
 
         return back()->with('alert-danger', 'Login Failed!');

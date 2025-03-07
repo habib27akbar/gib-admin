@@ -52,9 +52,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://ptgib.co.id/admin/'),
+    'url' => env('APP_URL', 'http://localhost/gib/'),
 
-    'asset_url' => env('ASSET_URL', 'https://ptgib.co.id/admin/'),
+    'asset_url' => env('ASSET_URL', 'http://localhost/gib/public'),
 
     /*
     |--------------------------------------------------------------------------
