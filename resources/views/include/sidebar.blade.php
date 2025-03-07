@@ -7,10 +7,11 @@
                         <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">UI elements</li><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Components</a>
-                        <ul class="sub-menu children dropdown-menu">                            <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
+                    <li class="menu-item-has-children {{ Request::is('unit_kerja') ? 'active' : '' }} dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Master</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li class=""><i class="fa fa-building-o"></i><a href="{{ route('unit_kerja.index') }}">Unit Kerja</a></li>
+                            <li><i class="fa fa-user"></i><a href="{{ route('auth.index') }}">User</a></li>
                             <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Tabs</a></li>
 
                             <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Cards</a></li>
