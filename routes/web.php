@@ -21,31 +21,33 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('auth.login');
 });
-
-// Route::get('/check-username', function (Request $request) {
-//     $exists = User::where('username', $request->query('username'))->exists();
-//     return response()->json(['exists' => $exists]);
-// });
-
-Route::get('/check-username', function (Request $request) {
-    $query = User::where('username', $request->query('username'));
-
-    // Abaikan pengecekan jika sedang edit dan ID dikirim
-    if ($request->has('id')) {
-        $query->where('id', '!=', $request->query('id'));
-    }
-
-    $exists = $query->exists();
-    return response()->json(['exists' => $exists]);
-});
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/login', [AuthController::class, 'login'])->name('authenticate');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::resource('auth', AuthController::class);
-Route::resource('unit_kerja', UnitKerjaController::class);
-Route::resource('customer', CustomerController::class);
-Route::resource('vendor_app', VendorController::class);
-Route::resource('produk', ProdukController::class);
+
+Route::get('/captcha-refresh', function () {
+    return response()->json(['captcha' => captcha_src()]);
+})->name('captcha.refresh');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/check-username', function (Request $request) {
+        $query = User::where('username', $request->query('username'));
+
+        // Abaikan pengecekan jika sedang edit dan ID dikirim
+        if ($request->has('id')) {
+            $query->where('id', '!=', $request->query('id'));
+        }
+
+        $exists = $query->exists();
+        return response()->json(['exists' => $exists]);
+    });
+
+
+    Route::resource('auth', AuthController::class);
+    Route::resource('unit_kerja', UnitKerjaController::class);
+    Route::resource('customer', CustomerController::class);
+    Route::resource('vendor_app', VendorController::class);
+    Route::resource('produk', ProdukController::class);
+});

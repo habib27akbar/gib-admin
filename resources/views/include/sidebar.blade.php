@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li class="{{ Request::is('home') ? 'active' : '' }}">
                         <a href="{{ route('home') }}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     
@@ -41,9 +41,19 @@
                             <li><i class="fa fa-files-o"></i><a href="#">Rekap Kunjungan</a></li>
                         </ul>
                     </li>
-
+                   
+                    
+                       
+                    <li class="menu-item-has-children dropdown">
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button><i class="menu-icon fa fa-sign-out"></i>Log Out</button>
+                        
+                        </form>
+                    </li>
                     
                 </ul>
+                
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside>

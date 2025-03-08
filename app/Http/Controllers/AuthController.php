@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Mews\Captcha\Facades\Captcha;
 use App\Models\User;
 use App\Models\UnitKerja;
 use App\Models\UserUnitKerja;
@@ -43,6 +45,26 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        // $credentials = $request->only('username', 'password');
+
+        // if (Auth::attempt($credentials)) {
+        //     $request->session()->regenerate();
+        //     return redirect()->intended('/home');
+        // }
+
+        // return back()->with('alert-danger', 'Login Failed!');
+
+        // Validasi input termasuk CAPTCHA
+        $validator = Validator::make($request->all(), [
+            'username' => 'required',
+            'password' => 'required',
+            'captcha' => 'required|captcha',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
         $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
