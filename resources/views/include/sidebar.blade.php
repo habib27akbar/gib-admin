@@ -4,77 +4,45 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="{{ route('home') }}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     
                     <li class="menu-item-has-children {{ Request::is('unit_kerja') || Request::is('auth') || Request::is('customer') ? 'active' : '' }} dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Master</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li class=""><i class="fa fa-building-o"></i><a href="{{ route('unit_kerja.index') }}">Unit Kerja</a></li>
-                            <li><i class="fa fa-user"></i><a href="{{ route('auth.index') }}">User</a></li>
-                            <li><i class="fa fa-users"></i><a href="{{ route('customer.index') }}">Customer</a></li>
-                            <li><i class="fa fa-users"></i><a href="{{ route('vendor_app.index') }}">Vendor</a></li>
-                            <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Cards</a></li>
-                            <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">Alerts</a></li>
-                            <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">Progress Bars</a></li>
-                            <li><i class="fa fa-fire"></i><a href="ui-modals.html">Modals</a></li>
-                            <li><i class="fa fa-book"></i><a href="ui-switches.html">Switches</a></li>
-                            <li><i class="fa fa-th"></i><a href="ui-grids.html">Grids</a></li>
-                            <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>
+                            <li class=""><i class="fa fa-building-o"></i> <a href="{{ route('unit_kerja.index') }}">Unit Kerja</a></li>
+                            <li><i class="fa fa-user"></i> <a href="{{ route('auth.index') }}">User</a></li>
+                            <li><i class="fa fa-users"></i> <a href="{{ route('customer.index') }}">Customer</a></li>
+                            <li><i class="fa fa-users"></i> <a href="{{ route('vendor_app.index') }}">Vendor</a></li>
+                            <li><i class="fa fa-inbox"></i> <a href="{{ route('produk.index') }}">Produk</a></li>
+                            
                         </ul>
                     </li>
+                    
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Data Transaksi</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="menu-title">Icons</li><!-- /.menu-title -->
-
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Font Awesome</a></li>
-                            <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Themefy Icons</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart"></i><a href="charts-chartjs.html">Chart JS</a></li>
-                            <li><i class="menu-icon fa fa-area-chart"></i><a href="charts-flot.html">Flot Chart</a></li>
-                            <li><i class="menu-icon fa fa-pie-chart"></i><a href="charts-peity.html">Peity Chart</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">Order</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">Inventory</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">Kunjungan Teknisi</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">Komplain</a></li>
                         </ul>
                     </li>
 
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-files-o"></i>Laporan</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-map-o"></i><a href="maps-gmap.html">Google Maps</a></li>
-                            <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Vector Maps</a></li>
+                            <li><i class="fa fa-files-o"></i><a href="#">Rekap Order</a></li>
+                            <li><i class="fa fa-files-o"></i><a href="#">Rekap Customer</a></li>
+                            <li><i class="fa fa-files-o"></i><a href="#">Rekap Inventory</a></li>
+                            <li><i class="fa fa-files-o"></i><a href="#">Rekap Produk After Sales</a></li>
+                            <li><i class="fa fa-files-o"></i><a href="#">Rekap Komplain</a></li>
+                            <li><i class="fa fa-files-o"></i><a href="#">Rekap Pesan Masuk</a></li>
+                            <li><i class="fa fa-files-o"></i><a href="#">Rekap Kunjungan</a></li>
                         </ul>
                     </li>
-                    <li class="menu-title">Extras</li><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
-                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>
-                        </ul>
-                    </li>
+
+                    
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
