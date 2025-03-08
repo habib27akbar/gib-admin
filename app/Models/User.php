@@ -20,7 +20,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'username',
-        'no_hp'
+        'no_hp',
+        'foto',
+        'password'
     ];
 
     /**
@@ -41,4 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function unitKerja()
+    {
+        return $this->hasMany(UserUnitKerja::class, 'id_user');
+    }
 }
