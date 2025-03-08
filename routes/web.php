@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UnitKerjaController;
 use App\Models\User;
@@ -43,3 +44,4 @@ Route::post('/login', [AuthController::class, 'login'])->name('authenticate');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('auth', AuthController::class);
 Route::resource('unit_kerja', UnitKerjaController::class);
+Route::resource('customer', CustomerController::class);
