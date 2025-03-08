@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UnitKerjaController;
-
+use App\Models\User;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,8 +21,24 @@ Route::get('/', function () {
     return view('home');
 });
 
+// Route::get('/check-username', function (Request $request) {
+//     $exists = User::where('username', $request->query('username'))->exists();
+//     return response()->json(['exists' => $exists]);
+// });
+
+Route::get('/check-username', function (Request $request) {
+    $query = User::where('username', $request->query('username'));
+
+    // Abaikan pengecekan jika sedang edit dan ID dikirim
+    if ($request->has('id')) {
+        $query->where('id', '!=', $request->query('id'));
+    }
+
+    $exists = $query->exists();
+    return response()->json(['exists' => $exists]);
+});
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/login', [AuthController::class, 'form_login'])->middleware('guest')->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('authenticate');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('auth', AuthController::class);
