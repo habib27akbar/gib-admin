@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UnitKerjaController;
+use App\Http\Controllers\VendorController;
 use App\Models\User;
 use Illuminate\Http\Request;
 /*
@@ -45,3 +46,4 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('auth', AuthController::class);
 Route::resource('unit_kerja', UnitKerjaController::class);
 Route::resource('customer', CustomerController::class);
+Route::resource('vendor_app', VendorController::class);

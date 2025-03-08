@@ -13,7 +13,7 @@
                             <li class=""><i class="fa fa-building-o"></i><a href="{{ route('unit_kerja.index') }}">Unit Kerja</a></li>
                             <li><i class="fa fa-user"></i><a href="{{ route('auth.index') }}">User</a></li>
                             <li><i class="fa fa-users"></i><a href="{{ route('customer.index') }}">Customer</a></li>
-                            
+                            <li><i class="fa fa-users"></i><a href="{{ route('vendor_app.index') }}">Vendor</a></li>
                             <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Cards</a></li>
                             <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">Alerts</a></li>
                             <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">Progress Bars</a></li>
