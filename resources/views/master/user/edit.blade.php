@@ -71,6 +71,18 @@
 
                                     <div class="row form-group">
                                         <div class="col col-md-2">
+                                            <label for="email" class="form-control-label">Email</label>
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <input type="email" id="email" name="email" class="form-control" value="{{  $user->email }}">
+                                            @error('email')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-2">
                                             <label for="username" class="form-control-label">Username</label>
                                         </div>
                                         <div class="col-12 col-md-5">

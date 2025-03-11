@@ -83,6 +83,7 @@ class AuthController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users,username',
+            'email' => 'required|email|max:255|unique:users,email', // Validasi email
             'no_hp' => 'required|string|max:15',
             'password' => 'required|string|min:6|confirmed',
             'user_unit_kerja' => 'nullable|array',
@@ -106,6 +107,7 @@ class AuthController extends Controller
                 'name' => $validated['name'],
                 'username' => $validated['username'],
                 'no_hp' => $validated['no_hp'],
+                'email' => $validated['email'],
                 'foto' => $nama_image,
                 'password' => Hash::make($validated['password'])
             ]);
@@ -150,6 +152,7 @@ class AuthController extends Controller
             $user->name = $validated['name'];
             $user->username = $validated['username'];
             $user->no_hp = $validated['no_hp'];
+            $user->email = $request->input('email');
 
             // Proses foto
             if ($request->hasFile('foto')) {
