@@ -46,6 +46,7 @@
                                             <th>No.</th>
                                             
                                             <th>Produk</th>
+                                            <th>Gambar</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -55,6 +56,7 @@
                                                  <td>{{ $loop->iteration }}</td>
                                                  
                                                  <td>{{ $value->nama_produk }}</td>
+                                                 <td><img style="width: 30%" src="{{ url('public/img/produk/'.$value->gambar) }}" alt=""></td>
                                                  <td>
                                                      <form method="POST" action="{{ route('produk.destroy', ['produk' => $value->id]) }}">
                                                         <div class="btn-group">

@@ -21,10 +21,19 @@ class ProdukController extends Controller
 
     public function store(Request $request)
     {
-
+        $nama_image = null;
+        if ($request->file('gambar')) {
+            $image = $request->file('gambar');
+            $nama_image = 'gambar-' . uniqid() . '-' . $image->getClientOriginalName();
+            $dir = 'img/produk';
+            $image->move(public_path($dir), $nama_image);
+        }
 
         $storeData = [
-            'nama_produk' => $request->input('nama_produk')
+            'nama_produk' => $request->input('nama_produk'),
+            'deskripsi' => $request->input('deskripsi'),
+            'gambar' => $nama_image,
+            'active' => $request->input('active'),
         ];
         Produk::create($storeData);
         return redirect('produk')->with('alert-success', 'Success Tambah Data');
@@ -43,9 +52,18 @@ class ProdukController extends Controller
     public function update(Request $request, $id)
     {
 
-
+        $nama_image = $request->input('image_old');
+        if ($request->file('gambar')) {
+            $image = $request->file('gambar');
+            $nama_image = 'gambar-' . uniqid() . '-' . $image->getClientOriginalName();
+            $dir = 'img/produk';
+            $image->move(public_path($dir), $nama_image);
+        }
         $updateData = [
-            'nama_produk' => $request->input('nama_produk')
+            'nama_produk' => $request->input('nama_produk'),
+            'deskripsi' => $request->input('deskripsi'),
+            'gambar' => $nama_image,
+            'active' => $request->input('active'),
         ];
         Produk::where('id', $id)->update($updateData);
         return redirect('produk')->with('alert-success', 'Success Update Data');

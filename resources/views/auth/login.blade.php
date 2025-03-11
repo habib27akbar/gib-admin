@@ -34,6 +34,12 @@
                     </a>
                 </div>
                 <div class="login-form">
+                    @if ($errors->has('captcha'))
+                        <div class="alert alert-danger">
+                            Captcha salah !
+                        </div>
+                    @endif
+
                     @include('include.admin.alert')
                     <form action="{{ route('authenticate') }}" method="POST">
                         @csrf
