@@ -38,7 +38,7 @@
                             </div>
                             <div class="card-body">
                                 @include('include.admin.alert')
-                                <a href="{{ route('auth.create') }}" class="btn btn-primary mb-3">Tambah</a>
+                                {{-- <a href="{{ route('auth.create') }}" class="btn btn-primary mb-3">Tambah</a> --}}
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>

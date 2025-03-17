@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KomplainController;
+use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UnitKerjaController;
 use App\Http\Controllers\VendorController;
@@ -50,4 +52,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('customer', CustomerController::class);
     Route::resource('vendor_app', VendorController::class);
     Route::resource('produk', ProdukController::class);
+    Route::resource('komplain', KomplainController::class);
+    //Route::resource('pendaftaran', PendaftaranController::class);
+    Route::get('/pendaftaran/data', [PendaftaranController::class, 'getData'])->name('pendaftaran.data');
+    Route::resource('pendaftaran', PendaftaranController::class)->except(['show']);
 });
