@@ -118,6 +118,23 @@
 
                                     <div class="row form-group">
                                         <div class="col col-md-2">
+                                            <label for="no_hp" class="form-control-label">Level</label>
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <select name="level" class="form-control">
+                                                <option {{ old('level') == 'admin' ?'selected':'' }} value="admin">Admin</option>
+                                                <option {{ old('level') == 'teknisi' ?'selected':'' }} value="teknisi">Teknisi</option>
+                                            </select>
+                                            @error('level')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                           
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-2">
                                             <label for="foto" class="form-control-label">Foto</label>
                                         </div>
                                         <div class="col-12 col-md-4">

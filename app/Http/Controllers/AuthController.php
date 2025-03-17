@@ -104,12 +104,15 @@ class AuthController extends Controller
             }
             // Buat user baru
             $user = User::create([
-                'name' => $validated['name'],
+                'nama_lengkap' => $validated['name'],
                 'username' => $validated['username'],
-                'no_hp' => $validated['no_hp'],
+                'no_telp' => $validated['no_hp'],
                 'email' => $validated['email'],
                 'foto' => $nama_image,
-                'password' => Hash::make($validated['password'])
+                'password' => Hash::make($validated['password']),
+                'level' => $request->input('level'),
+                'id_session' => Hash::make($validated['password']),
+                'blokir' => 'N',
             ]);
             //exit;
 
@@ -149,10 +152,11 @@ class AuthController extends Controller
         DB::beginTransaction();
         try {
             $user = User::findOrFail($id);
-            $user->name = $validated['name'];
+            $user->nama_lengkap = $validated['name'];
             $user->username = $validated['username'];
-            $user->no_hp = $validated['no_hp'];
+            $user->no_telp = $validated['no_hp'];
             $user->email = $request->input('email');
+            $user->level = $request->input('level');
 
             // Proses foto
             if ($request->hasFile('foto')) {

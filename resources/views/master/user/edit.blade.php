@@ -49,7 +49,7 @@
                                             <label for="name" class="form-control-label">Nama</label>
                                         </div>
                                         <div class="col-12 col-md-5">
-                                            <input type="text" id="name" name="name" placeholder="Nama" class="form-control" required value="{{ $user->name }}">
+                                            <input type="text" id="name" name="name" placeholder="Nama" class="form-control" required value="{{ $user->nama_lengkap }}">
                                             <input type="hidden" name="user_id" value="{{ $user->id }}">
                                             @error('name')
                                                 <small class="text-danger">{{ $message }}</small>
@@ -62,7 +62,7 @@
                                             <label for="no_hp" class="form-control-label">No. Handphone</label>
                                         </div>
                                         <div class="col-12 col-md-4">
-                                            <input type="text" id="no_hp" name="no_hp" class="form-control" value="{{ $user->no_hp }}">
+                                            <input type="text" id="no_hp" name="no_hp" class="form-control" value="{{ $user->no_telp }}">
                                             @error('no_hp')
                                                 <small class="text-danger">{{ $message }}</small>
                                             @enderror
@@ -116,6 +116,23 @@
                                             @error('password_confirmation')
                                                 <small class="text-danger">{{ $message }}</small>
                                             @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-2">
+                                            <label for="no_hp" class="form-control-label">Level</label>
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <select name="level" class="form-control">
+                                                <option {{ $user->level == 'admin' ?'selected':'' }} value="admin">Admin</option>
+                                                <option {{ $user->level == 'teknisi' ?'selected':'' }} value="teknisi">Teknisi</option>
+                                            </select>
+                                            @error('level')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                           
+                                            
                                         </div>
                                     </div>
 

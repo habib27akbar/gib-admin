@@ -12,9 +12,9 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li class=""><i class="fa fa-building-o"></i> <a href="{{ route('unit_kerja.index') }}">Unit Kerja</a></li>
                             <li><i class="fa fa-user"></i> <a href="{{ route('auth.index') }}">User</a></li>
-                            <li><i class="fa fa-users"></i> <a href="{{ route('customer.index') }}">Customer</a></li>
-                            <li><i class="fa fa-users"></i> <a href="{{ route('vendor_app.index') }}">Vendor</a></li>
-                            <li><i class="fa fa-inbox"></i> <a href="{{ route('produk.index') }}">Produk</a></li>
+                            {{-- <li><i class="fa fa-users"></i> <a href="{{ route('customer.index') }}">Customer</a></li>
+                            <li><i class="fa fa-users"></i> <a href="{{ route('vendor_app.index') }}">Vendor</a></li> --}}
+                            {{-- <li><i class="fa fa-inbox"></i> <a href="{{ route('produk.index') }}">Produk</a></li> --}}
                             
                         </ul>
                     </li>

@@ -54,8 +54,8 @@
                                             <tr>
                                                  <td>{{ $loop->iteration }}</td>
                                                  
-                                                 <td>{{ $value->name }}</td>
-                                                 <td>{{ $value->no_hp }}</td>
+                                                 <td>{{ $value->nama_lengkap }}</td>
+                                                 <td>{{ $value->no_telp }}</td>
                                                  <td>
                                                     @foreach ($value->unitKerja as $unit)
                                                         {{ $unit->unitKerjaDetail->unit_kerja ?? 'Tidak Ada' }}<br>
